@@ -20,6 +20,8 @@ S={
  "ency":("MedlinePlus Medical Encyclopedia: Differences of sex development.","https://medlineplus.gov/ency/article/001669.htm"),
  "mgd":("Corona LE, et al. Mixed Gonadal Dysgenesis: A Narrative Literature Review and Clinical Primer for the Urologist. J Urol. 2024.","https://pubmed.ncbi.nlm.nih.gov/38968141/"),
  "ovo":("Barros BA, et al. Are NR5A1 Variations a Frequent Cause of 46,XX Ovotesticular DSD? Single-center analysis and systematic review. Sex Dev. 2022.","https://pubmed.ncbi.nlm.nih.gov/36657429/"),
+ "kosti":("Kosti K, Athanasiadis L, Goulis DG. Long-term consequences of androgen insensitivity syndrome. Maturitas. 2019;127:51-54.","https://pubmed.ncbi.nlm.nih.gov/31351520/"),
+ "bertelloni":("Bertelloni S, et al. Bone Mineral Density in Women Living with Complete Androgen Insensitivity Syndrome and Intact Testes or Removed Gonads. Sex Dev. 2017;11(4):182-189.","https://pubmed.ncbi.nlm.nih.gov/28715798/"),
  "dsdf":("dsdfamilies (UK charity for families and young people with DSD).","https://www.dsdfamilies.org/"),
  "aissg":("AIS-DSD Support Group / AISSG.","https://www.aissg.org/"),
  "cares":("CARES Foundation (congenital adrenal hyperplasia).","https://caresfoundation.org/"),
@@ -117,10 +119,13 @@ page("thanks.html","Thank you",'<h1>Thank you</h1><p>Your submission was receive
 
 import json, html as H
 E=json.load(open("debunked/entries.json")) if __import__("os").path.exists("debunked/entries.json") else []
+def tri(h,items):
+    if not items: return ""
+    return f"<h3>{h}</h3><ul>"+"".join(f'<li>{H.escape(x["text"])} <small>(Source: <a href="{H.escape(x["url"])}">{H.escape(x["label"])}</a>)</small></li>' for x in items)+"</ul>"
 def ent(e):
     src="".join(f'<li><a href="{H.escape(x["url"])}">{H.escape(x["label"])}</a></li>' for x in e["sources"])
     return f'''<article class="myth" id="d{e["id"]}"><p class="fn"><time datetime="{e["date"]}">{e["date"]}</time></p><img class="shot" src="{e["image"]}" alt="{H.escape(e["alt"])}" loading="lazy">
-<h2>Claim</h2><p>{H.escape(e["claim"])}</p><h2>Fact check</h2><p>{H.escape(e["fact"])}</p><h3>Sources</h3><ul>{src}</ul></article>'''
+<h2>Claim</h2><p>{H.escape(e["claim"])}</p><h2>Fact check</h2><p>{H.escape(e["fact"])}</p>{tri("Rarity",e.get("rarity"))}{tri("Associated health conditions",e.get("health"))}<h3>Sources</h3><ul>{src}</ul></article>'''
 body="".join(ent(e) for e in reversed(E)) or '<p class="note" role="status"><strong>No entries yet.</strong> Reports sent through the <a href="contribute.html#report">Contribute</a> page are reviewed first. Entries will appear here once they are verified and redacted.</p>'
 page("debunked.html","Debunked",f'''<h1>Debunked</h1><p class="lead">These are real claims about disorders of sex development (DSD) seen on social media, each checked against the medical sources on this site.</p>
 <p>We correct claims, not people. Usernames, display names, and profile photos are blacked out in every screenshot. If you see your own post here and want it removed, contact us through the <a href="contribute.html">Contribute</a> page.</p>{body}''')

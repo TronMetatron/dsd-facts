@@ -30,6 +30,48 @@
       {
         "label": "DSD Facts: Androgen insensitivity myth",
         "url": "myths.html"
+      },
+      {
+        "label": "Kosti K, Athanasiadis L, Goulis DG. Long-term consequences of androgen insensitivity syndrome. Maturitas. 2019;127:51-54.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31351520/"
+      },
+      {
+        "label": "Bertelloni S, et al. Bone Mineral Density in Women Living with CAIS and Intact Testes or Removed Gonads. Sex Dev. 2017;11(4):182-189.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28715798/"
+      }
+    ],
+    "rarity": [
+      {
+        "text": "Complete androgen insensitivity syndrome (CAIS) affects 2 to 5 in 100,000 newborn females. Partial AIS is thought to be at least as common.",
+        "label": "MedlinePlus Genetics: Androgen insensitivity syndrome",
+        "url": "https://medlineplus.gov/genetics/condition/androgen-insensitivity-syndrome/"
+      },
+      {
+        "text": "Classic congenital adrenal hyperplasia (21-hydroxylase deficiency) occurs in about 1 in 15,000 newborns. The non-classic form affects about 1 in 1,000 people.",
+        "label": "MedlinePlus Genetics: 21-hydroxylase deficiency",
+        "url": "https://medlineplus.gov/genetics/condition/21-hydroxylase-deficiency/"
+      }
+    ],
+    "health": [
+      {
+        "text": "Germ cell tumors of the gonads: the risk is increased in CAIS and rises after puberty, and it is higher in partial AIS (PAIS) than in CAIS.",
+        "label": "Kosti et al., Maturitas 2019",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31351520/"
+      },
+      {
+        "text": "Low bone density (osteopenia and osteoporosis), especially after early removal of the gonads. Hormone therapy may improve bone density but does not normalize it.",
+        "label": "Kosti et al., Maturitas 2019; Bertelloni et al., Sex Dev 2017",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31351520/"
+      },
+      {
+        "text": "Infertility is the rule in CAIS and PAIS.",
+        "label": "Kosti et al., Maturitas 2019",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31351520/"
+      },
+      {
+        "text": "Psychological support is recommended, because rates of psychiatric conditions are higher.",
+        "label": "Kosti et al., Maturitas 2019",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31351520/"
       }
     ]
   }
