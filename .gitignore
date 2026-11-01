@@ -1,0 +1,4 @@
+dsd-submissions/
+originals/
+*.orig.*
+__pycache__/

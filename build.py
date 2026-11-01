@@ -26,7 +26,7 @@ S={
 }
 keys=list(S)
 def c(k): return f'<sup><a href="sources.html#{k}">[{keys.index(k)+1}]</a></sup>'
-NAV=[("index.html","Home"),("conditions.html","Conditions"),("myths.html","Myths vs Facts"),("voices.html","Voices &amp; Resources"),("sources.html","Sources"),("contribute.html","Contribute"),("about.html","About")]
+NAV=[("index.html","Home"),("conditions.html","Conditions"),("myths.html","Myths vs Facts"),("voices.html","Voices &amp; Resources"),("sources.html","Sources"),("debunked.html","Debunked"),("contribute.html","Contribute"),("about.html","About")]
 def page(fn,title,body):
     nav="".join(f'<li><a href="{h}"{" aria-current=\"page\"" if h==fn else ""}>{t}</a></li>' for h,t in NAV)
     open(fn,"w").write(f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -108,9 +108,19 @@ page("contribute.html","Contribute",f'''<h1>Contribute</h1><p class="lead">Help 
 <form action="{ACTION}" method="POST" enctype="multipart/form-data">{hid("DSD Facts: Misinformation report")}
 <label>Link to where the claim or image appears<input type="url" name="claim_url" placeholder="https://" required></label>
 <label>Direct image link (optional)<input type="url" name="image_url" placeholder="https://"></label>
-<label>Screenshot upload (optional, image only)<input type="file" name="attachment" accept="image/*"></label>
+<label>Screenshot of the post or comment (optional)<span class="hint">Especially posts and comments seen on X (or other social media) where someone makes a claim, for example claiming a DSD they don\'t have or describing anatomy that isn\'t possible. Images only. We black out usernames and profile photos before anything is published.</span><input type="file" name="attachment" accept="image/*"></label>
 <label>What does the claim say?<textarea name="claim" rows="4" required></textarea></label>
 <label>Why is it misleading? (sources welcome)<textarea name="why_misleading" rows="4" required></textarea></label>
 <label>Name (optional)<input name="name"></label><label>Email (optional)<input type="email" name="email"></label>
 <button class="btn" type="submit">Send report</button></form></section>''')
 page("thanks.html","Thank you",'<h1>Thank you</h1><p>Your submission was received and will be reviewed before anything is published.</p><p><a href="contribute.html">Back to Contribute</a></p>')
+
+import json, html as H
+E=json.load(open("debunked/entries.json")) if __import__("os").path.exists("debunked/entries.json") else []
+def ent(e):
+    src="".join(f'<li><a href="{H.escape(x["url"])}">{H.escape(x["label"])}</a></li>' for x in e["sources"])
+    return f'''<article class="myth" id="d{e["id"]}"><p class="fn"><time datetime="{e["date"]}">{e["date"]}</time></p><img class="shot" src="{e["image"]}" alt="{H.escape(e["alt"])}" loading="lazy">
+<h2>Claim</h2><p>{H.escape(e["claim"])}</p><h2>Fact check</h2><p>{H.escape(e["fact"])}</p><h3>Sources</h3><ul>{src}</ul></article>'''
+body="".join(ent(e) for e in reversed(E)) or '<p class="note" role="status"><strong>No entries yet.</strong> Reports sent through the <a href="contribute.html#report">Contribute</a> page are reviewed first. Entries will appear here once they are verified and redacted.</p>'
+page("debunked.html","Debunked",f'''<h1>Debunked</h1><p class="lead">These are real claims about disorders of sex development (DSD) seen on social media, each checked against the medical sources on this site.</p>
+<p>We correct claims, not people. Usernames, display names, and profile photos are blacked out in every screenshot. If you see your own post here and want it removed, contact us through the <a href="contribute.html">Contribute</a> page.</p>{body}''')
