@@ -26,18 +26,18 @@ S={
 }
 keys=list(S)
 def c(k): return f'<sup><a href="sources.html#{k}">[{keys.index(k)+1}]</a></sup>'
-NAV=[("index.html","Home"),("conditions.html","Conditions"),("myths.html","Myths vs Facts"),("voices.html","Voices &amp; Resources"),("sources.html","Sources"),("about.html","About")]
+NAV=[("index.html","Home"),("conditions.html","Conditions"),("myths.html","Myths vs Facts"),("voices.html","Voices &amp; Resources"),("sources.html","Sources"),("contribute.html","Contribute"),("about.html","About")]
 def page(fn,title,body):
     nav="".join(f'<li><a href="{h}"{" aria-current=\"page\"" if h==fn else ""}>{t}</a></li>' for h,t in NAV)
     open(fn,"w").write(f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{title} | {SITE_NAME}</title><meta name="description" content="Evidence-based information about differences of sex development (DSD).">
+<title>{title} | {SITE_NAME}</title><meta name="description" content="Evidence-based information about disorders of sex development (DSD).">
 <link rel="stylesheet" href="style.css"></head><body><a class="skip" href="#main">Skip to content</a>
 <header><div class="wrap"><a class="brand" href="index.html">{SITE_NAME}</a><nav aria-label="Main"><ul>{nav}</ul></nav></div></header>
 <main id="main" class="wrap">{body}</main>
 <footer><div class="wrap"><p>{SITE_NAME} is an educational resource, not medical advice. See <a href="about.html">About &amp; disclaimer</a>. Draft, last reviewed Oct 2026.</p></div></footer></body></html>''')
 
-page("index.html","Home",f'''<section class="hero"><h1>Accurate information about differences of sex development</h1>
-<p class="lead">Differences (or disorders) of sex development, called DSDs and often referred to as intersex conditions, are congenital conditions in which chromosomal, gonadal, or anatomical sex develops atypically.{c("lee2006")} Each one is a specific medical diagnosis with its own causes, care needs, and lived experience.</p>
+page("index.html","Home",f'''<section class="hero"><h1>Accurate information about disorders of sex development</h1>
+<p class="lead">Disorders of sex development (DSD)<sup><a href="about.html#terms" aria-label="Terminology note">*</a></sup>, often referred to as intersex conditions, are congenital conditions in which chromosomal, gonadal, or anatomical sex develops atypically.{c("lee2006")} Each one is a specific medical diagnosis with its own causes, care needs, and lived experience.</p><p class="fn"><small>* Sometimes referred to as 'differences of sex development.'</small></p>
 <p><a class="btn" href="conditions.html">Explore conditions</a> <a class="btn alt" href="myths.html">Myths vs facts</a></p></section>
 <h2>Our mission</h2><ul>
 <li><strong>Get the facts right.</strong> Every claim here links to a medical or peer-reviewed source.</li>
@@ -64,7 +64,7 @@ C=[
 ]
 rows="".join(f'''<article class="cond" id="c{i}"><h2>{n}</h2><dl><dt>Karyotype</dt><dd>{k}</dd><dt>Biology</dt><dd>{b}</dd><dt>Typical presentation</dt><dd>{p}</dd><dt>Prevalence</dt><dd>{pr}</dd><dt>Health needs</dt><dd>{h}</dd></dl></article>''' for i,(n,k,b,p,pr,h) in enumerate(C))
 toc="".join(f'<li><a href="#c{i}">{x[0]}</a></li>' for i,x in enumerate(C))
-page("conditions.html","Conditions",f'''<h1>Conditions</h1><p class="lead">The 2006 Consensus Statement grouped DSDs into sex chromosome DSD, 46,XY DSD, and 46,XX DSD.{c("lee2006")} Each condition below is distinct. Grouping them under one label can hide very different needs.</p><nav class="toc" aria-label="Conditions"><ul>{toc}</ul></nav>{rows}''')
+page("conditions.html","Conditions",f'''<h1>Conditions</h1><p class="lead">The 2006 Consensus Statement grouped disorders of sex development (DSD) into sex chromosome DSD, 46,XY DSD, and 46,XX DSD.{c("lee2006")} Each condition below is distinct. Grouping them under one label can hide very different needs.</p><nav class="toc" aria-label="Conditions"><ul>{toc}</ul></nav>{rows}''')
 
 page("myths.html","Myths vs Facts",f'''<h1>Myths vs facts</h1><p class="lead">These are common claims, with what the medical evidence says.</p>
 <article class="myth"><h2>Myth: Intersex people have "two full sets of genitals."</h2><p><strong>Fact:</strong> No DSD produces two complete, functioning sets of external genitals. The closest condition is <a href="conditions.html#c8">ovotesticular DSD</a>, which involves <em>gonadal tissue</em> (ovarian and testicular), either in one ovotestis or as one ovary and one testis. External genitals may be ambiguous, or may look typically female or male.{c("ency")}</p></article>
@@ -72,8 +72,8 @@ page("myths.html","Myths vs Facts",f'''<h1>Myths vs facts</h1><p class="lead">Th
 <article class="myth"><h2>Myth: XXY means a person is "both sexes."</h2><p><strong>Fact:</strong> 47,XXY (Klinefelter syndrome) is a sex chromosome variation in people with a Y chromosome, who develop testes and male anatomy. The main effects are lower testosterone and infertility.{c("ks")} Most clinicians do not consider it intersex in the sense of ambiguous anatomy.{c("sax")} The same applies to 48,XXXY and 49,XXXXY, which affect boys and men.{c("xxxy")}{c("xxxxy")}</p></article>
 <article class="myth"><h2>Myth: "Androgen sensitivity" makes someone male and female.</h2><p><strong>Fact:</strong> The condition is androgen <em>in</em>sensitivity. Because of <em>AR</em> gene variants, the body's cells can't respond (fully or partly) to testosterone. In the complete form, people with 46,XY chromosomes and internal testes develop typical female external anatomy and usually live as women.{c("ais")}</p></article>
 <section id="debated"><h2>Genuinely debated questions</h2>
-<article class="myth"><h3>"Intersex" vs "DSD" terminology</h3><p>The 2006 Consensus introduced "disorders of sex development" to replace terms like "hermaphrodite" and "pseudohermaphrodite."{c("lee2006")} The 2016 update reports continued disagreement: some patients and advocates find "disorder" stigmatizing and prefer "differences" or "intersex," while others prefer a specific diagnosis over any umbrella term.{c("lee2016")} This site uses "DSD" and the condition name, and respects each person's preferred language.</p></article>
-<article class="myth"><h3>Timing of genital surgery</h3><p>The 2006 Consensus called for care by multidisciplinary teams, open communication, and caution about surgery.{c("lee2006")} The 2016 global update notes there is still not enough outcome evidence on early versus deferred surgery, and that views differ among clinicians, parents, and adults with DSD.{c("lee2016")} We present this as an open question.</p></article>
+<article class="myth"><h3>"Intersex" vs "DSD" terminology</h3><p>The 2006 Consensus introduced "disorders of sex development" to replace terms like "hermaphrodite" and "pseudohermaphrodite."{c("lee2006")} Some patients and advocates prefer "differences of sex development" or "intersex," and others prefer the specific diagnosis name. This site uses "DSD" and the condition name, and respects each person's preferred language for themselves.</p></article>
+<article class="myth"><h3>Timing of genital surgery</h3><p>The 2006 Consensus called for care by multidisciplinary teams, open communication, and caution about surgery.{c("lee2006")} The 2016 global update, which included support and advocacy group representatives, states that decisions about gender assignment and "surgery during infancy that alters external genital anatomy or removes germ cells continue to carry risk."{c("lee2016")} Clinicians, parents, and adults with DSD hold differing views on timing, so we present this as an open question.</p></article>
 <article class="myth"><h3>Which conditions count as intersex?</h3><p>Broad definitions (Blackless et al.){c("blackless")} and narrow ones (Sax){c("sax")} both have published defenders. We list what each definition includes rather than choosing one figure.</p></article></section>''')
 
 page("voices.html","Voices & Resources",f'''<h1>Voices &amp; resources</h1><p class="lead">The best sources on living with a DSD are the people and families themselves. These organizations are run by or with them.</p>
@@ -87,6 +87,30 @@ page("voices.html","Voices & Resources",f'''<h1>Voices &amp; resources</h1><p cl
 li="".join(f'<li id="{k}">{t} <a href="{u}">{u}</a></li>' for k,(t,u) in S.items())
 page("sources.html","Sources",f'<h1>Sources</h1><p>Numbers match the citations throughout the site. All links were checked in October 2026.</p><ol class="bib">{li}</ol>')
 
-page("about.html","About",f'''<h1>About {SITE_NAME}</h1><p>{SITE_NAME} is an independent educational project. Its goal is to provide accurate, sourced information about differences of sex development, to correct misinformation respectfully, and to keep the focus on people who live with these conditions.</p>
-<h2>Editorial standards</h2><ul><li>Every factual claim cites a medical body, peer-reviewed publication, or established patient organization.</li><li>We correct claims, not people.</li><li>Where experts disagree, we present each side with sources.</li><li>Corrections are welcome and will be dated.</li></ul>
+page("about.html","About",f'''<h1>About {SITE_NAME}</h1><p>{SITE_NAME} is an independent educational project. Its goal is to provide accurate, sourced information about disorders of sex development (DSD), to correct misinformation respectfully, and to keep the focus on people who live with these conditions.</p>
+<h2 id="terms">Terminology</h2><p>This site uses <strong>disorders of sex development (DSD)</strong>, the term introduced by the 2006 Consensus Statement.{c("lee2006")} <small>* These conditions are sometimes referred to as 'differences of sex development.'</small></p><h2>Editorial standards</h2><ul><li>Every factual claim cites a medical body, peer-reviewed publication, or established patient organization.</li><li>We correct claims, not people.</li><li>Where experts disagree, we present each side with sources.</li><li>Corrections are welcome and will be dated.</li></ul>
 <h2 id="disclaimer">Medical disclaimer</h2><p class="note">This site is for general education only and is <strong>not medical advice</strong>. It doesn't replace diagnosis or treatment by qualified clinicians. If you or your child may have a DSD, talk to a specialist team (endocrinology, urology/gynecology, genetics, and psychology). In an emergency, such as signs of adrenal crisis in CAH, seek urgent care immediately.</p>''')
+
+ACTION="https://formsubmit.co/c5349cab16477242773d39d969a56e77"  # FormSubmit alias for the inbox
+NEXT="https://tronmetatron.github.io/dsd-facts/thanks.html"
+def hid(subj): return f'<input type="hidden" name="_subject" value="{subj}"><input type="hidden" name="_template" value="table"><input type="hidden" name="_next" value="{NEXT}"><input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">'
+page("contribute.html","Contribute",f'''<h1>Contribute</h1><p class="lead">Help keep this site accurate. All submissions are <strong>reviewed before anything is published</strong>.</p>
+<p class="note"><strong>Please send links, not copies.</strong> Don't download or repost photos of private individuals. Share the URL where the claim or image appears, and we'll review it there. Never submit images of children or intimate images.</p>
+<section class="formbox"><h2 id="suggest">Suggest an improvement</h2>
+<form action="{ACTION}" method="POST">{hid("DSD Facts: Suggestion")}
+<label>Name (optional)<input name="name" autocomplete="name"></label>
+<label>Email (optional)<input type="email" name="email" autocomplete="email"></label>
+<label>Page or topic<input name="page_or_topic" required></label>
+<label>Your suggestion<textarea name="suggestion" rows="5" required></textarea></label>
+<label>Supporting sources (links, citations)<textarea name="sources" rows="3"></textarea></label>
+<button class="btn" type="submit">Send suggestion</button></form></section>
+<section class="formbox"><h2 id="report">Report misinformation</h2>
+<form action="{ACTION}" method="POST" enctype="multipart/form-data">{hid("DSD Facts: Misinformation report")}
+<label>Link to where the claim or image appears<input type="url" name="claim_url" placeholder="https://" required></label>
+<label>Direct image link (optional)<input type="url" name="image_url" placeholder="https://"></label>
+<label>Screenshot upload (optional, image only)<input type="file" name="attachment" accept="image/*"></label>
+<label>What does the claim say?<textarea name="claim" rows="4" required></textarea></label>
+<label>Why is it misleading? (sources welcome)<textarea name="why_misleading" rows="4" required></textarea></label>
+<label>Name (optional)<input name="name"></label><label>Email (optional)<input type="email" name="email"></label>
+<button class="btn" type="submit">Send report</button></form></section>''')
+page("thanks.html","Thank you",'<h1>Thank you</h1><p>Your submission was received and will be reviewed before anything is published.</p><p><a href="contribute.html">Back to Contribute</a></p>')

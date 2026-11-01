@@ -13,3 +13,6 @@ dl{display:grid;grid-template-columns:11rem 1fr;gap:.4rem 1rem}dt{font-weight:60
 .toc ul{columns:2;padding-left:1.2rem}@media(max-width:600px){.toc ul{columns:1}}.bib li{margin:.5rem 0;word-break:break-word}
 .note{background:#fff8e6;border-left:4px solid #d9a400;padding:1rem}footer{border-top:1px solid var(--bd);color:var(--mut);font-size:.9rem}
 a:focus-visible{outline:3px solid #f2a900;outline-offset:2px}
+.formbox{border:1px solid var(--bd);border-radius:8px;padding:1rem 1.2rem;margin:1.5rem 0}
+form label{display:block;font-weight:600;margin:.8rem 0}form input:not([type=file]),form textarea{display:block;width:100%;font:inherit;padding:.5rem;border:1px solid #9aa5b1;border-radius:6px;margin-top:.3rem;font-weight:400}
+.hp{position:absolute;left:-9999px}.fn{color:var(--mut)}
