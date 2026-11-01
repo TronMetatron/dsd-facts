@@ -1,1 +1,36 @@
-[]
+[
+  {
+    "id": 1,
+    "date": "2026-10-31",
+    "image": "debunked/img/2026-10-31-001.png",
+    "alt": "Redacted screenshot of an X post claiming 46,XX androgen insensitivity caused masculine traits",
+    "claim": "A post states that the author has two X chromosomes (46,XX) and that an intersex condition causing androgen insensitivity made their body develop in a male hormone environment, producing masculine traits.",
+    "fact": "Androgen insensitivity syndrome (AIS) is caused by variants in the AR gene, which makes the androgen receptor. It affects people with 46,XY chromosomes. Because the body cannot respond fully, or at all, to androgens such as testosterone, AIS leads to female-typical or under-masculinized development, not masculine traits. The AR gene is on the X chromosome, and AIS is inherited in an X-linked pattern. People with 46,XX chromosomes are not affected by AIS in this way. When a 46,XX person develops masculine traits, the most common medical cause is congenital adrenal hyperplasia (CAH), a different condition in which the adrenal glands make too many androgens. Rarer causes include 46,XX testicular DSD and ovotesticular DSD.",
+    "sources": [
+      {
+        "label": "MedlinePlus Genetics: Androgen insensitivity syndrome",
+        "url": "https://medlineplus.gov/genetics/condition/androgen-insensitivity-syndrome/"
+      },
+      {
+        "label": "MedlinePlus Genetics: 21-hydroxylase deficiency (CAH)",
+        "url": "https://medlineplus.gov/genetics/condition/21-hydroxylase-deficiency/"
+      },
+      {
+        "label": "MedlinePlus Genetics: 46,XX testicular difference of sex development",
+        "url": "https://medlineplus.gov/genetics/condition/46xx-testicular-difference-of-sex-development/"
+      },
+      {
+        "label": "DSD Facts: CAIS and PAIS",
+        "url": "conditions.html#c3"
+      },
+      {
+        "label": "DSD Facts: CAH",
+        "url": "conditions.html#c5"
+      },
+      {
+        "label": "DSD Facts: Androgen insensitivity myth",
+        "url": "myths.html"
+      }
+    ]
+  }
+]
